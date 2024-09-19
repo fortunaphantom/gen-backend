@@ -112,3 +112,13 @@ export const metadata = [
     edition_total: 1,
   },
 ];
+
+export const metadataUris = [
+  "https://ipfs.moralis.io:2053/ipfs/Qmf4uKipQPuoarAJ8ByGVuJnCYWPKBZtdS5pFNm4sTqHY3",
+  "https://ipfs.moralis.io:2053/ipfs/QmcE7fC7H2SiQqWrM1UDNUyNtvpB3LGK7f8TBZLomF1hEi",
+  "https://torche.link/ultimate-champions-polygon/0000000000000000000000000000000000000000000000000000000000000001.json",
+  "https://ipfs.moralis.io:2053/ipfs/QmRQAze65ei6bhjqRp6F6v6A1yetWfJe8JXpfX8oznu8uZ",
+  "https://ipfs.moralis.io:2053/ipfs/QmV1xGvjAkDLgoKPvd2UbKo9cxJaYmDVZ9X1mEns5bVj9i",
+  "https://ipfs.moralis.io:2053/ipfs/QmZUaeae2zePcPjzMz4VGcKBG1ksAruMzWL1qXqEz1DM9g",
+  "https://bafybeiavy6u6gulkef5fopvmbjelgoqksicv4qov2z5d2po73qn4jjquhq.ipfs.w3s.link/ipfs.json",
+];

@@ -19,7 +19,7 @@ export const getOwnedNfts = async (address: EvmAddressInput) => {
         const nft = {
           contractAddress: n.tokenAddress.lowercase,
           tokenId: n.tokenId.toString(),
-          chainId: 1,
+          chainId: chain.decimal,
           metadata: n.metadata,
         };
 
