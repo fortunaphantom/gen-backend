@@ -1,8 +1,9 @@
 import express from "express";
-import { getOwnedNfts } from "../controllers/controller";
+import { getOwnedNftsMethod, uploadHandler } from "../controllers/controller";
 
 const router = express.Router();
 
-router.get("/get-owned-nfts", getOwnedNfts);
+router.get("/get-owned-nfts", getOwnedNftsMethod);
+router.post("/upload", uploadHandler);
 
 export default router;

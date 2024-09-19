@@ -1,32 +1,20 @@
 import { Request, Response } from "express";
 import Moralis from "moralis";
-import { EvmChain } from "@moralisweb3/common-evm-utils";
+import { EvmAddressInput, EvmChain } from "@moralisweb3/common-evm-utils";
 import { tNft } from "../types/tNft";
+import { getOwnedNfts } from "../services/getOwnedNfts";
+import { uploadPinata } from "../services/uploadPinata";
+import { metadata } from "../config/metadata";
 
-export const getOwnedNfts = async (req: Request, res: Response) => {
-  const allNFTs: tNft[] = [];
-
-  const address = "0x26fcbd3afebbe28d0a8684f790c48368d21665b5";
-
-  const chains = [EvmChain.ETHEREUM, EvmChain.BSC, EvmChain.POLYGON];
-
-  for (const chain of chains) {
-    const response = await Moralis.EvmApi.nft.getWalletNFTs({
-      address,
-      chain,
-    });
-
-    response.result.forEach((n) => {
-      const nft = {
-        contractAddress: n.tokenAddress.lowercase,
-        tokenId: n.tokenId.toString(),
-        chainId: 1,
-        metadata: n.metadata,
-      };
-
-      allNFTs.push(nft);
-    });
-  }
-
+export const getOwnedNftsMethod = async (req: Request, res: Response) => {
+  const address = req.query.address as EvmAddressInput; // "0x26fcbd3afebbe28d0a8684f790c48368d21665b5";
+  const allNFTs: tNft[] = await getOwnedNfts(address);
   res.json(allNFTs);
+};
+
+export const uploadHandler = async (req: Request, res: Response) => {
+  const upload = await uploadPinata(
+    JSON.stringify(metadata[Math.round(Math.random() * 1000) % metadata.length])
+  );
+  res.json(upload);
 };
