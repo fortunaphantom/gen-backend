@@ -7,8 +7,7 @@ import { uploadPinata } from "../services/uploadPinata";
 import { metadata, metadataUris } from "../config/metadata";
 
 export const getOwnedNftsMethod = async (req: Request, res: Response) => {
-  const address = "0x26fcbd3afebbe28d0a8684f790c48368d21665b5";
-  // const address = req.query.address as EvmAddressInput; // "0x26fcbd3afebbe28d0a8684f790c48368d21665b5";
+  const address = req.query.address as EvmAddressInput;
   const allNFTs: tNft[] = await getOwnedNfts(address);
   res.json(allNFTs);
 };
