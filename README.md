@@ -25,3 +25,8 @@ Custom middlewares and logger were made to handle the exceptions globally.
 - services: external service functions
 - types: type definitions
 - utils: globlly used features
+
+# Endpoints
+
+- GET: `/api/get-owned-nfts?address=[address]`: get owned nfts from the address
+- POST: `/api/upload`: get random IPFS url when minting
